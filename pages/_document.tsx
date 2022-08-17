@@ -21,19 +21,20 @@ class MyDocument extends Document {
 
 const themeInitializerScript = `(function() {
     ${setInitialColorMode.toString()}
-    setInitialColorMode()
-})()`
+    setInitialColorMode();
+})()
+`;
 
 function setInitialColorMode() {
     function getInitialColorMode() {
-        const storePreferenceMode = window.localStorage.getItem("theme");
-        const hasStoredPreference = typeof storePreferenceMode === "string";
+        const persistedPreferenceMode = window.localStorage.getItem("theme");
+        const hasPersistedPreference = typeof persistedPreferenceMode === "string";
 
-        if (hasStoredPreference) {
-            return storePreferenceMode;
+        if (hasPersistedPreference) {
+            return persistedPreferenceMode;
         }
 
-        const preference = window.matchMedia("(prefers-color-scheme): dark")
+        const preference = window.matchMedia("(prefers-color-scheme: dark)");
         const hasMediaQueryPreference = typeof preference.matches === "boolean";
 
         if (hasMediaQueryPreference) {
@@ -43,10 +44,11 @@ function setInitialColorMode() {
     }
 
     const currentColorMode = getInitialColorMode();
-    if (currentColorMode === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark")
-    }
+    const element = document.documentElement;
 
+    element.style.setProperty("--initial-color-mode", currentColorMode);
+
+    if (currentColorMode === "dark")
+        document.documentElement.setAttribute("data-theme", "dark");
 }
-
 export default MyDocument;
