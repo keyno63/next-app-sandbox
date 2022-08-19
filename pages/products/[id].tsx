@@ -2,7 +2,7 @@ import {useRouter} from "next/router";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps(params: any) {
     // const req = await fetch(`http://localhost:3000/${params.id}.json`)
     // const data = await req.json();
     const data = JSON.parse(`{
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
     };
 }
 
-const Product = ({ product }) => {
+const Product = (product: any) => {
     const router = useRouter()
     const { id } = router.query
     return (
