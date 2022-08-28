@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 const DarkMode: NextPage = () => {
 
     const [darkTheme, setDarkTheme] = useState(false);
-    const handleToggle = (e) => {
+    const handleToggle = (e: any) => {
         setDarkTheme(e.target.checked);
     }
 
