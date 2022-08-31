@@ -1,23 +1,24 @@
 import React from "react";
 import {NextPage} from "next";
+import Link from "next/link";
 
 const Header: NextPage = () => {
     return (
         <header>
             <div className="logo">
-                <h3>ポートフォリオ</h3>
+                <h3>名前迷子について</h3>
             </div>
 
             <nav>
                 <ul>
                     <li>
-                        <a href="#">ホーム</a>
+                        <Link href="/">ホーム</Link>
                     </li>
                     <li>
-                        <a href="#">ブログ</a>
+                        <a href="https://keyno63.hatenablog.com/" target="_blank">ブログ</a>
                     </li>
                     <li>
-                        <a href="#">SNS</a>
+                        <a href="https://twitter.com/maigo_name" target="_blank">Twitter</a>
                     </li>
                 </ul>
             </nav>

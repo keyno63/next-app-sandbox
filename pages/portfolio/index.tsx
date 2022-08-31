@@ -1,9 +1,15 @@
 import {NextPage} from "next";
-import Header from "../../components/Header";
+import Header from "../../components/header/Header";
+import Homepage from "./Homepage";
+import About from "./About";
 
 const Portfolio: NextPage = () => {
     return (
-        <Header></Header>
+        <div className="Portfolio">
+            <Header></Header>
+            <Homepage />
+            <About />
+        </div>
         )
 }
 
